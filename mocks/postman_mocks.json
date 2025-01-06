@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "289b3ac9-be9c-449b-975d-29b04d7cfe2f",
+		"name": "PIX API Mocks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40782362"
+	},
+	"item": [
+		{
+			"name": "Criação de Cobrança",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"key\": \"12345678900\",\r\n  \"keyType\": \"CPF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/keys",
+					"protocol": "https",
+					"host": [
+						"cbf3d611-197c-46bb-8932-ded5230f469f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"pix",
+						"keys"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Chave PIX Válida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"key\": \"12345678900\",\r\n  \"keyType\": \"CPF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/keys",
+							"protocol": "https",
+							"host": [
+								"cbf3d611-197c-46bb-8932-ded5230f469f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"pix",
+								"keys"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"key\": \"12345678900\"\n}"
+				},
+				{
+					"name": "Chave PIX Inválida",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"key\": \"00000000000\",\r\n  \"keyType\": \"CPF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/keys",
+							"protocol": "https",
+							"host": [
+								"cbf3d611-197c-46bb-8932-ded5230f469f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"pix",
+								"keys"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"error\",\n  \"message\": \"Chave PIX inválida\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Validação de Transação",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"transactionId\": \"abc123456\",\r\n  \"amount\": 100.00,\r\n  \"recipient\": \"+55-11-99999-8888\",\r\n  \"keyType\": \"CPF\",\r\n  \"key\": \"12345678900\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/validate",
+					"protocol": "https",
+					"host": [
+						"cbf3d611-197c-46bb-8932-ded5230f469f",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"pix",
+						"validate"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Sucesso",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"key\": \"00987654321\",\r\n  \"keyType\": \"CPF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/validate",
+							"protocol": "https",
+							"host": [
+								"cbf3d611-197c-46bb-8932-ded5230f469f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"pix",
+								"validate"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"success\",\n  \"message\": \"Transação aprovada\"\n}"
+				},
+				{
+					"name": "Falha de Autenticação",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"key\": \"01010101010\",\r\n  \"keyType\": \"CPF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/validate",
+							"protocol": "https",
+							"host": [
+								"cbf3d611-197c-46bb-8932-ded5230f469f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"pix",
+								"validate"
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"error\",\n  \"message\": \"Token expirado\"\n}\n"
+				},
+				{
+					"name": "Timeout",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"key\": \"65656565656\",\r\n  \"keyType\": \"CPF\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://cbf3d611-197c-46bb-8932-ded5230f469f.mock.pstmn.io/pix/validate",
+							"protocol": "https",
+							"host": [
+								"cbf3d611-197c-46bb-8932-ded5230f469f",
+								"mock",
+								"pstmn",
+								"io"
+							],
+							"path": [
+								"pix",
+								"validate"
+							]
+						}
+					},
+					"status": "Gateway Timeout",
+					"code": 504,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"status\": \"error\",\n  \"message\": \"Timeout no servidor\"\n}"
+				}
+			]
+		}
+	]
+}

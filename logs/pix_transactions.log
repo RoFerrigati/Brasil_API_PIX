@@ -1,0 +1,7 @@
+2025-01-05 23:16:57,881 - Test create_charge_error: 400 - {'status': 'error', 'message': 'Erro na criação da cobrança. Dados inválidos'}
+2025-01-05 23:16:57,882 - Test create_charge_success: 200 - {'status': 'success', 'message': 'Cobrança criada com sucesso', 'charge_id': 'charge123'}
+2025-01-05 23:16:57,883 - Test create_pix_key_invalid: 400 - {'status': 'error', 'message': 'Chave PIX inválida'}
+2025-01-05 23:16:57,884 - Test create_pix_key_valid: 200 - {'status': 'success', 'key': '12345678900'}
+2025-01-05 23:16:57,885 - Test validate_transaction_auth_error: 401 - {'status': 'error', 'message': 'Token expirado'}
+2025-01-05 23:16:57,885 - Test validate_transaction_success: 200 - {'status': 'success', 'message': 'Transação aprovada'}
+2025-01-05 23:16:57,891 - Test validate_transaction_timeout: 504 - {'status': 'error', 'message': 'Timeout no servidor'}
